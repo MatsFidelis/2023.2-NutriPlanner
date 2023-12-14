@@ -213,7 +213,7 @@ const CadastroPaciente = () =>{
     function cadastrarPaciente(event){
         event.preventDefault();
 
-        const url = 'http://localhost:3000/pacientes';
+        const url = 'https://2023-2-nutri-planner-kkeo-git-su-191871-mateus-fidelis-projects.vercel.app/pacientes';
 
         axios.post(url, dadosPaciente)
         .then((response) => {

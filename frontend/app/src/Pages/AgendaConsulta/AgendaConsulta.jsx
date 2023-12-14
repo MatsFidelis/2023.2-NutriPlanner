@@ -40,7 +40,7 @@ const AgendaConsulta = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/pacientes/${termoBusca}`);
+          const response = await axios.get(`https://2023-2-nutri-planner-kkeo-git-su-191871-mateus-fidelis-projects.vercel.app/pacientes/${termoBusca}`);
           setPacientes(response.data.data);
         } catch (error) {
           console.error('Erro ao buscar pacientes:', error.message);
@@ -76,7 +76,7 @@ const AgendaConsulta = () => {
     
           const data = new Date(selectedDate);
     
-          const response = await axios.post(`http://localhost:3000/consultas/65727ab7d551d27e780eda5b`, {
+          const response = await axios.post(`https://2023-2-nutri-planner-kkeo-git-su-191871-mateus-fidelis-projects.vercel.app/consultas/65727ab7d551d27e780eda5b`, {
             dtConsulta: data,
             local: selectedLocation,
           });

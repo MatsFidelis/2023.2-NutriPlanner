@@ -25,7 +25,7 @@ const VerDieta = () => {
     useEffect(() => {
         const getPaciente = async (idPaciente) => {
             try {
-                const response = await axios.get(`http://localhost:3000/pacientes/${idPaciente}`);
+                const response = await axios.get(`https://2023-2-nutri-planner-kkeo-git-su-191871-mateus-fidelis-projects.vercel.app/pacientes/${idPaciente}`);
                 const { paciente, medida } = response.data.data;
                 setDadosPaciente({ paciente, medida });
             } catch (error) {

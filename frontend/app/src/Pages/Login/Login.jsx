@@ -17,7 +17,7 @@ function Login() {
         console.log(pin);
 
         try{
-            const response = await axios.post('http://localhost:3000/login', 
+            const response = await axios.post('https://2023-2-nutri-planner-kkeo-git-su-191871-mateus-fidelis-projects.vercel.app/login', 
                 JSON.stringify({pin}),
                 {
                     headers:{ 'Content-Type': 'application/json'}

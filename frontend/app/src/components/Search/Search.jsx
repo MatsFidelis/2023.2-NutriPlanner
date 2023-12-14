@@ -12,7 +12,7 @@ const Search = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/pacientes/${termoBusca}`);
+        const response = await axios.get(`https://2023-2-nutri-planner-kkeo-git-su-191871-mateus-fidelis-projects.vercel.app/pacientes/${termoBusca}`);
         setPacientes(response.data.data);
       } catch (error) {
         console.error('Erro ao buscar pacientes:', error.message);
