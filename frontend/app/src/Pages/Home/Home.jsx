@@ -159,7 +159,7 @@ const Home = () =>{
                     <a href="/cadastroTreino" className='Home-item-menu'>
                         <MenuButton title="Criar Plano de Treino" icon={treino}/>
                     </a>
-                    <a href="/" className='Home-item-menu'>
+                    <a href="/agendaConsulta" className='Home-item-menu'>
                         <MenuButton title="Agendar Consulta" icon={agendamento} />
                     </a>
                 </nav>
