@@ -15,7 +15,7 @@ import treino from '../../assets/icons/Treino.svg';
 import paciente from '../../assets/icons/Paciente.svg';
 import adicaoPaciente from '../../assets/icons/Adição Paciente.svg';
 
-const VerPaciente = () => {
+const VerDieta = () => {
     const { id } = useParams();
 
     const navigate = useNavigate();
@@ -58,10 +58,10 @@ const VerPaciente = () => {
                 <span className="VerPaciente-menu-titulo">MENU</span>
                 <hr className="VerPaciente-menu-divisao" />
                 <nav className="VerPaciente-navegacao">
-                    <a href="/home" className='VerPaciente-item-menu'>
+                    <a href="/" className='VerPaciente-item-menu'>
                         <MenuButton title="Pacientes" icon={paciente} selecionado="true" />
                     </a>
-                    <a href="/cadastrarPaciente" className='VerPaciente-item-menu'>
+                    <a href="/" className='VerPaciente-item-menu'>
                         <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente} />
                     </a>
                     <a href="/criarDieta" className='VerPaciente-item-menu'>
@@ -79,12 +79,12 @@ const VerPaciente = () => {
             <div className="VerPaciente-areaLateral">
                 <div>
                     <div className="VerPaciente-cabecalho">
-                        <h1 className="VerPaciente-nomePaciente VerPaciente-hs-p">{dadosPaciente.paciente.nome}</h1>
+                        <h1 className="VerPaciente-nomePaciente">{dadosPaciente.paciente.nome}</h1>
                         <button onClick={handleEditarPaciente} className="VerPaciente-topBtn">Editar dados</button>
                     </div>
                     <hr />
                     {/* Render patient information */}
-                    <h2 className="VerPaciente-h2 VerPaciente-hs-p">Dados Pessoais</h2>
+                    <h2 className="VerPaciente-h2">Dados Pessoais</h2>
                     <div className="VerPaciente-infoBox">
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Data de nascimento</p>
@@ -112,7 +112,7 @@ const VerPaciente = () => {
                         </div>
                     </div>
 
-                    <h2 className="VerPaciente-h2 VerPaciente-hs-p">Informações Médicas</h2>
+                    <h2 className="VerPaciente-h2">Informações Médicas</h2>
                     <div className="VerPaciente-infoBox">                            
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Objetivos do Paciente</p>
@@ -131,27 +131,6 @@ const VerPaciente = () => {
                             {/* Fazer o Map de medicamentosIngeridos */}
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Medicamentos Ingeridos</p>
-
-                                <div>
-                                    {<></> ? dadosPaciente.paciente.questionario.medicamentosIngeridos.map((med, index) => (
-                                        <div key={index} className="VerPaciente-medicamentoCard">
-                                            <div className="VerPaciente-nomeMedArea">
-                                                <p>Nome:</p>
-                                                <p>{med.nome}</p>
-                                            </div>
-                                            <div className="VerPaciente-nomeMedArea">
-                                                <p>Horário:</p>
-                                                <p>{med.horario}</p>
-                                            </div>
-                                            <div className="VerPaciente-nomeMedArea">
-                                                <p>Tipo de uso:</p>
-                                                <p>{med.tipo}</p>
-                                            </div>
-
-                                        </div>
-                                    )) : <p>Não possui</p>}
-                                    
-                                </div>
                                 <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.medicamentosIngeridos.nome}</p>
                             </div>
 
@@ -186,7 +165,7 @@ const VerPaciente = () => {
                             </div>
                         </div>
 
-                    <h2 className="VerPaciente-h2 VerPaciente-hs-p">Informações Nutricionais</h2>
+                    <h2 className="VerPaciente-h2">Informações Nutricionais</h2>
                         <div className="VerPaciente-infoBox">
 
                             <div className="VerPaciente-cardInterno-Infor">
@@ -211,7 +190,7 @@ const VerPaciente = () => {
                         </div>
 
                         <div className="VerPaciente-avaliacaoAtropometrica">
-                        <h2 className="VerPaciente-h2 VerPaciente-hs-p">Avaliação Antropométrica</h2>
+                        <h2 className="VerPaciente-h2">Avaliação Antropométrica</h2>
                         <div className="VerPaciente-infoBox">
 
                         <div className="VerPaciente-cardInterno-Infor">
@@ -231,10 +210,10 @@ const VerPaciente = () => {
 
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">IMC</p>
-                            <p className="VerPaciente-texto">{ dadosPaciente.medida.imc}</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.imc}</p>
                         </div>
 
-                        <h3 className="VerPaciente-h3 VerPaciente-hs-p">Dobras Cutâneas</h3>
+                        <h3 className="VerPaciente-h3">Dobras Cutâneas</h3>
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Subcapsular</p>
                             <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.subscapular + 'mm'}</p>
@@ -270,7 +249,7 @@ const VerPaciente = () => {
                             <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.abdominal + 'mm'}</p>
                         </div>
 
-                        <h3 className="VerPaciente-h3 VerPaciente-hs-p">Circunferências (Da mais recente à mais antiga)</h3>
+                        <h3 className="VerPaciente-h3">Circunferências (Da mais recente à mais antiga)</h3>
                         <div className="VerPaciente-carrosselArea">
                         
                             {dadosPaciente.medida.circunferencia.reverse().map((medida, index)=>(
@@ -278,72 +257,72 @@ const VerPaciente = () => {
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Braço esquerdo</p>
-                                    <p className="VerPaciente-textoCircunferencia">{medida.bracoEsquerdo ? medida.bracoEsquerdo + 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">{"Não informado" ||medida.bracoEsquerdo + 'cm'}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Braço direito</p>
-                                    <p className="VerPaciente-textoCircunferencia">{ medida.bracoDireito ? medida.bracoDireito+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">{"Não informado" || medida.bracoDireito+ 'cm'}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Antebraço esquerdo</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.antebracoEsquerdo ? medida.antebracoEsquerdo+"cm" : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.antebracoEsquerdo} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Antebraço direito</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.antebracoDireito ? medida.antebracoDireito+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.antebracoDireito} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Abdômen</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.abdomen ? medida.abdomen+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.abdomen} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Cintura</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.cintura ? medida.cintura+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.cintura} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Peitoral</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.peitoral ? medida.peitoral+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.peitoral} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Ombros</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.ombros ? medida.ombros+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.ombros} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Coxa esquerda</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.coxaEsquerda ? medida.coxaEsquerda+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.coxaEsquerda} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Coxa direita</p>
-                                    <p className="VerPaciente-textoCircunferencia"> { medida.coxaDireita ? medida.coxaDireita+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.coxaDireita} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Panturrilha esquerda</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.panturrilhaEsquerda ? medida.panturrilhaEsquerda+ 'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaEsquerda} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Panturrilha direita</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.panturrilhaDireita ? medida.panturrilhaDireita+'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaDireita} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Quadril</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.quadril ? medida.quadril+'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.quadril} cm </p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Pescoço</p>
-                                    <p className="VerPaciente-textoCircunferencia"> {medida.pescoco ?  medida.pescoco+'cm' : "Não informado"}</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.pescoco} cm </p>
                                 </div>
                             </div>
                             ))}
@@ -358,10 +337,4 @@ const VerPaciente = () => {
     );
 };
 
-export default VerPaciente
-
-// -- Dar um jeito de, se o vetor medicamentosIngeridos tiver vazio, mostrar a mensagem 'Não informado'.
-
-// -- Fazer o map com medicamentosIngeridos
-
-// -- Se ****sobrar tempo**** tirar o círculo verde de Circunferencias se não tiver nada no array.
+export default VerDieta

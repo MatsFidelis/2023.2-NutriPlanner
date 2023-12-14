@@ -8,6 +8,8 @@ const pacienteRoutes = require("./routes/pacienteRoutes.js");
 const consultaRoutes = require("./routes/consultaRoutes.js");
 const treinoRoutes = require('./routes/treinoRoutes.js');
 
+const rotaDieta = require('./routes/dieta.js');
+
 dotenv.config();
 
 // forma de ler JSON
@@ -32,3 +34,4 @@ require("./db/connection.js");
 app.use('/pacientes', pacienteRoutes);
 app.use('/consultas', consultaRoutes);
 app.use('/treinos', treinoRoutes);
+app.use('/dietas', rotaDieta);

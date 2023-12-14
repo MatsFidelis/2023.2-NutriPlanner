@@ -203,7 +203,7 @@
     width: 250px;
     margin: 10px;
     white-space: nowrap; 
-  display: inline-block;
+    display: inline-block;
 }
 
 .VerPaciente-textoLabelCircunferencia{

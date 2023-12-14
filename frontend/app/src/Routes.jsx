@@ -9,6 +9,9 @@ import VerTreinos from './Pages/VerTreinos/VerTreinos'
 import EditarTreinos from './Pages/EditarTreinos/EditarTreinos'
 import AgendaConsulta from './Pages/AgendaConsulta/AgendaConsulta'
 import VerPaciente from "./Pages/VerPaciente/VerPaciente"
+import CriarDieta from "./Pages/CriarDieta/CriarDieta"
+import VerDieta from "./Pages/VerDieta/VerDieta"
+import EditarDieta from "./Pages/EditarDieta/EditarDieta"
 
 export default function AppRoutes() {
 	return (
@@ -23,6 +26,10 @@ export default function AppRoutes() {
 				<Route path="/editarTreinos" element={<PrivateRoute><EditarTreinos /></PrivateRoute>} />
 				<Route path="/agendaConsulta" element={<PrivateRoute><AgendaConsulta /></PrivateRoute>} />
 
+
+				<Route path="/criarDieta" element={<PrivateRoute><CriarDieta/></PrivateRoute>}/>
+				<Route path="/verDieta" element={<PrivateRoute><VerDieta/></PrivateRoute>}/>
+				<Route path="/editarDieta" element={<PrivateRoute><EditarDieta/></PrivateRoute>}/>
 			</Routes>
 		</BrowserRouter>
 	)
