@@ -6,14 +6,19 @@
    --laranja: #F6A340;
 }
 
-h1, h2, h3, p{
+.VerPaciente-hs-p{
     margin: 0px;
 }
+
 
 .VerPaciente {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
     display: grid;
+    
+    p{
+        margin: 0px;
+    }
 }
  
 @media screen and (min-width: 0px){
@@ -216,4 +221,15 @@ h1, h2, h3, p{
 
 .VerPaciente-rodape{
     grid-area: footer;
+}
+
+.VerPaciente-medicamentoCard{
+    display: flex;
+    flex-direction: row;
+}
+
+.VerPaciente-nomeMedArea{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 10px;
 }
